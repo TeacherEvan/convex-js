@@ -1,0 +1,9 @@
+{
+  "plan": "2026-09-08-bigfile-convex-js-auth_websocket.test.tsx.md",
+  "verdict": "READY-WITH-WARNINGS",
+  "ready_for_impl": true,
+  "gaps": [
+    "llm_unreachable"
+  ],
+  "reviewed_at": "2026-09-08T06:14:54.872222+07:00"
+}
