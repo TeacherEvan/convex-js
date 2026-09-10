@@ -1,0 +1,11 @@
+{
+  "plan": "2026-09-11-bigfile-convex-js-auth_websocket.test.tsx.md",
+  "verdict": "NEEDS-REVISION",
+  "ready_for_impl": false,
+  "gaps": [
+    "**OBJ-002 is nonsensical.** `expect` is vitest's assertion library imported from `\"vitest\"` \u2014 it is not a shared utility to be relocated to `lib/` or `@/components/ui/`. The planner misidentified a test-framework import as a candidate for barrel extraction. This objective would waste effort on a meaningless move.",
+    "**OBJ-006\u2013OBJ-012 are copy-pasted filler.** Seven identical \"Hardening pass 6\u201312\" objectives with the exact same description, no distinct targets, and no preceding passes 1\u20135. This directly contradicts the plan's header claim that objectives are \"NOT a generic N-slice filler.\" The structural checker scored `objectives=0` \u2014 it could not parse any objective as valid.",
+    "**No DOD, no security section, vague objectives.** `has_dod=None`, `has_security=None`. OBJ-004 (\"audit sibling barrels\") and OBJ-005 (\"reduce below 583 lines via cumulative extractions\") name no concrete extraction targets \u2014 they are goals, not actionable objectives. The plan lacks a Definition of Done and any security-relevant considerations for a refactor that touches auth-websocket test code."
+  ],
+  "reviewed_at": "2026-09-11T06:49:41.141571+07:00"
+}

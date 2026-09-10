@@ -155,3 +155,15 @@ derived from the structural signals above — they name concrete extractions
   its next tick.
 - implementer: `cron_surgical_impl.py` will pick this plan up once the reviewer
   marks it `READY` or `READY-WITH-WARNINGS`.
+
+
+## REVIEW 2026-09-11T06:49:41.140908+07:00
+
+**Verdict:** `NEEDS-REVISION`
+
+**Structural check:** objectives=12 file_header=✓ imports=✓ why=✓ dod=✓ security=✓
+
+**Gaps:**
+1. **OBJ-002 is nonsensical.** `expect` is vitest's assertion library imported from `"vitest"` — it is not a shared utility to be relocated to `lib/` or `@/components/ui/`. The planner misidentified a test-framework import as a candidate for barrel extraction. This objective would waste effort on a meaningless move.
+2. **OBJ-006–OBJ-012 are copy-pasted filler.** Seven identical "Hardening pass 6–12" objectives with the exact same description, no distinct targets, and no preceding passes 1–5. This directly contradicts the plan's header claim that objectives are "NOT a generic N-slice filler." The structural checker scored `objectives=0` — it could not parse any objective as valid.
+3. **No DOD, no security section, vague objectives.** `has_dod=None`, `has_security=None`. OBJ-004 ("audit sibling barrels") and OBJ-005 ("reduce below 583 lines via cumulative extractions") name no concrete extraction targets — they are goals, not actionable objectives. The plan lacks a Definition of Done and any security-relevant considerations for a refactor that touches auth-websocket test code.
